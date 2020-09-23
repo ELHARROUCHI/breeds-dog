@@ -1,10 +1,17 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'dog-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'dog-breeds';
+
+  constructor(private readonly translate: TranslateService) {
+  }
+
+  onChangeLanguage($event): void {
+    this.translate.use($event.target.value);
+  }
 }
