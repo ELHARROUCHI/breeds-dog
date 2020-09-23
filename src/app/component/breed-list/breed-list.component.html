@@ -1,0 +1,29 @@
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand">
+    <img src="assets/icons/dog-paw.svg" class="mx-1 logo">
+    <span>Dog Breeds</span>
+  </a>
+  <form class="form-inline">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="breedSelect">
+          {{'breed' | translate}}
+        </label>
+      </div>
+      <select
+        name="breed"
+        id="breedSelect"
+        [(ngModel)]="breedName"
+        (ngModelChange)="onChangeBreed()"
+        class="custom-select text-capitalize"
+      >
+        <option
+          *ngFor="let breed of (breeds$ | async)"
+          [ngValue]="breed"
+        >
+          {{breed}}
+        </option>
+      </select>
+    </div>
+  </form>
+</nav>
